@@ -7,7 +7,7 @@ import Footer from './Components/Footer';
 import { main, resume, testimonials } from '../public/resumeData';
 import _ from 'lodash';
 import axios from 'axios';
-import { PROFILE_URL, EXPERIENCE_URL, EDUCATION_URL } from './Util/Constants';
+import { PROFILE_URL, EXPERIENCE_URL, EDUCATION_URL, SKILLS_URL } from './Util/Constants';
 
 
 class App extends Component {
@@ -23,18 +23,40 @@ class App extends Component {
   }
 
   async getProfile() {
-    const res = await axios.get(PROFILE_URL);
-    return res.data;
+    try {
+      const res = await axios.get(PROFILE_URL);
+      return res.data;
+    } catch (e) {
+      return {};
+    }
   }
 
   async getExperience() {
-    const res = await axios.get(EXPERIENCE_URL);
-    return res.data;
+    try {
+      const res = await axios.get(EXPERIENCE_URL);
+      return res.data;
+    } catch (e) {
+      return [];
+    }
   }
 
   async getEducation() {
-    const res = await axios.get(EDUCATION_URL);
-    return res.data;
+    try {
+      const res = await axios.get(EDUCATION_URL);
+      return res.data;
+    } catch (e) {
+      return [];
+    }
+  }
+
+  async getSkills() {
+    try {
+      const res = await axios.get(SKILLS_URL);
+      return res.data;
+    } catch (e) {
+      console.log(e);
+      return [];
+    }
   }
 
   componentDidMount() {
@@ -44,7 +66,8 @@ class App extends Component {
           let profile = await this.getProfile();
           let experience = await this.getExperience();
           let education = await this.getEducation();
-          this.updateState(profile, experience, education);
+          let skills = await this.getSkills();
+          this.updateState(profile, experience, education, skills);
         } catch (e) {
           console.log(e);
         }
@@ -52,7 +75,7 @@ class App extends Component {
     }
   }
 
-  updateState(profile, experience, education) {
+  updateState(profile, experience, education, skills) {
     this.setState(
       {
         resumeData:
@@ -61,7 +84,7 @@ class App extends Component {
           resume: {
             education: education,
             work: experience,
-            skills: [], //TODO
+            skills: skills,
           }
         }
       }

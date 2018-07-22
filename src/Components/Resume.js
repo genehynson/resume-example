@@ -36,40 +36,46 @@ class Resume extends Component {
     }
     return (
       <section id="resume">
-      <div className="row education">
-         <div className="three columns header-col">
-            <h1><span>Education</span></h1>
-         </div>
+      {_.isEmpty(education) ? null :
+        <div className="row education">
+          <div className="three columns header-col">
+              <h1><span>Education</span></h1>
+          </div>
 
-         <div className="nine columns main-col">
-            {education}
-         </div>
-      </div>
+          <div className="nine columns main-col">
+              {education}
+          </div>
+        </div>
+      }
+      
+      {_.isEmpty(work) ? null :
+        <div className="row work">
+          <div className="three columns header-col">
+              <h1><span>Work</span></h1>
+          </div>
 
-      <div className="row work">
-         <div className="three columns header-col">
-            <h1><span>Work</span></h1>
-         </div>
+          <div className="nine columns main-col">
+            {work}
+          </div>
+        </div>
+      }
 
-         <div className="nine columns main-col">
-          {work}
-         </div>
-      </div>
-
-      <div className="row skill">
-         <div className="three columns header-col">
-            <h1><span>Skills</span></h1>
-         </div>
-         <div className="nine columns main-col">
-            <p>Skills I have aquired from my Computer Science education or my profesional experience in the software development field, rated by my peers. 
-            </p>
-				<div className="bars">
-				   <ul className="skills">
-					  {skills}
-					</ul>
-				</div>
-			</div>
-      </div>
+      {_.isEmpty(skills) ? null :
+        <div className="row skill">
+          <div className="three columns header-col">
+              <h1><span>Skills</span></h1>
+          </div>
+          <div className="nine columns main-col">
+              <p>Skills I have aquired from my Computer Science education or my profesional experience in the software development field. 
+              </p>
+          <div className="bars">
+            <ul className="skills">
+              {skills}
+            </ul>
+          </div>
+        </div>
+        </div>
+      }
    </section>
     );
   }
