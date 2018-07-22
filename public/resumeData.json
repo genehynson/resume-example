@@ -1,33 +1,9 @@
 {
   "main": {},
   "resume":{
-    "education":[
-    ],
-    "work":[
-    ],
-    "skills":[
-      {
-        "name":"Photoshop",
-        "level":"40%"
-      },
-      {
-        "name":"Illustrator",
-        "level":"25%"
-      },
-      {
-        "name":"Photography",
-        "level":"70%"
-      },
-      {
-        "name":"Branding",
-        "level":"30%"
-      },
-      {
-        "name":"Education",
-        "level":"50%"
-      }
-      
-    ]
+    "education":[],
+    "work":[],
+    "skills":[]
   },
   "testimonials":{
     "testimonials":[

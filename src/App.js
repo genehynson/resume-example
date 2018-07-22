@@ -3,7 +3,6 @@ import './App.css';
 import Header from './Components/Header';
 import About from './Components/About';
 import Resume from './Components/Resume';
-import Testimonials from './Components/Testimonials';
 import Footer from './Components/Footer';
 import { main, resume, testimonials } from '../public/resumeData';
 import _ from 'lodash';
