@@ -313,6 +313,7 @@ ul#nav li.current a { color: #7CDEE6; }
    position: absolute;
    left: 0;
    top: 0;
+   cursor: pointer;
 
    margin: 0;
    padding-right: 24px;

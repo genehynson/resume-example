@@ -59,18 +59,33 @@ class App extends Component {
     }
   }
 
+  updateSkillLevel(skill, newLevel) {
+    axios.put(`${SKILLS_URL}/${skill.id}`, {
+      name: skill.name,
+      level: newLevel
+    });
+    this.setState(
+      {
+        resumeData:
+        {
+          ...this.state.resumeData,
+          resume: {
+            ...this.state.resumeData.resume,
+            skills: _.map(this.state.resumeData.resume.skills, (s) => s.id == skill.id ? { id: s.id, name: s.name, level: newLevel } : s)
+          }
+        }
+      }
+    )
+  }
+
   componentDidMount() {
     if (_.isEmpty(this.state.resumeData.main)) {
       (async () => {
-        try {
-          let profile = await this.getProfile();
-          let experience = await this.getExperience();
-          let education = await this.getEducation();
-          let skills = await this.getSkills();
-          this.updateState(profile, experience, education, skills);
-        } catch (e) {
-          console.log(e);
-        }
+        let profile = await this.getProfile();
+        let experience = await this.getExperience();
+        let education = await this.getEducation();
+        let skills = await this.getSkills();
+        this.updateState(profile, experience, education, skills);
       })();
     }
   }
@@ -98,7 +113,7 @@ class App extends Component {
       <div className="App">
         <Header data={this.state.resumeData.main} />
         <About data={this.state.resumeData.main} />
-        <Resume data={this.state.resumeData.resume} />
+        <Resume data={this.state.resumeData.resume} updateSkillLevel={(skill, newLevel) => this.updateSkillLevel(skill, newLevel)} />
         {/* <Testimonials data={this.state.resumeData.testimonials} /> */}
         <Footer />
       </div>
