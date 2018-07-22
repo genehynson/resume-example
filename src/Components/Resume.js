@@ -4,12 +4,12 @@ import axios from 'axios';
 import { SKILLS_URL } from '../Util/Constants';
 
 class Resume extends Component {
-  onSkillClick = (skill) => {
-    if (skill.level < 100) {
-      let newValue = skill.level + 5;
-      this.props.updateSkillLevel(skill, newValue);
-    }
-  }
+  // onSkillClick = (skill) => {
+  //   if (skill.level < 100) {
+  //     let newValue = skill.level + 5;
+  //     this.props.updateSkillLevel(skill, newValue);
+  //   }
+  // }
 
   render() {
     const self = this;
@@ -38,7 +38,7 @@ class Resume extends Component {
           </div>
         </div>
       });
-      
+
       var skills = this.props.data.skills.map(function (skill) {
         var className = 'bar-expand ' + skill.name.toLowerCase();
         return <li key={skill.name} onClick={() => self.onSkillClick(skill)}><span style={{ width: `${skill.level}%` }} className={className}></span><em>{skill.name}</em></li>
