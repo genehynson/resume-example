@@ -49,34 +49,24 @@ class App extends Component {
     }
   }
 
-  async getSkills() {
-    try {
-      const res = await axios.get(SKILLS_URL);
-      return res.data;
-    } catch (e) {
-      console.log(e);
-      return [];
-    }
-  }
-
-  updateSkillLevel(skill, newLevel) {
-    axios.put(`${SKILLS_URL}/${skill.id}`, {
-      name: skill.name,
-      level: newLevel
-    });
-    this.setState(
-      {
-        resumeData:
-        {
-          ...this.state.resumeData,
-          resume: {
-            ...this.state.resumeData.resume,
-            skills: _.map(this.state.resumeData.resume.skills, (s) => s.id == skill.id ? { id: s.id, name: s.name, level: newLevel } : s)
-          }
-        }
-      }
-    )
-  }
+  // updateSkillLevel(skill, newLevel) {
+  //   axios.put(`${SKILLS_URL}/${skill.id}`, {
+  //     name: skill.name,
+  //     level: newLevel
+  //   });
+  //   this.setState(
+  //     {
+  //       resumeData:
+  //       {
+  //         ...this.state.resumeData,
+  //         resume: {
+  //           ...this.state.resumeData.resume,
+  //           skills: _.map(this.state.resumeData.resume.skills, (s) => s.id == skill.id ? { id: s.id, name: s.name, level: newLevel } : s)
+  //         }
+  //       }
+  //     }
+  //   )
+  // }
 
   componentDidMount() {
     if (_.isEmpty(this.state.resumeData.main)) {
@@ -84,13 +74,12 @@ class App extends Component {
         let profile = await this.getProfile();
         let experience = await this.getExperience();
         let education = await this.getEducation();
-        let skills = await this.getSkills();
-        this.updateState(profile, experience, education, skills);
+        this.updateState(profile, experience, education);
       })();
     }
   }
 
-  updateState(profile, experience, education, skills) {
+  updateState(profile, experience, education) {
     this.setState(
       {
         resumeData:
@@ -99,7 +88,7 @@ class App extends Component {
           resume: {
             education: education,
             work: experience,
-            skills: skills,
+            skills: [], //TODO
           }
         }
       }
