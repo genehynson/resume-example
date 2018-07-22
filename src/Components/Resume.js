@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
+import _ from 'lodash';
 
 class Resume extends Component {
   render() {
-    if(this.props.data){
+    if(!_.isEmpty(this.props.data)){
       var education = this.props.data.education.map(function(edu){
-        return <div key={edu.school} className="row item">
+        return <div key={edu.id} className="row item">
            <div className="twelve columns">
               <h3>{edu.school}</h3>
               <p className="info">{edu.degree} <span>&bull;</span> <em className="date">{edu.graduated}</em></p>
@@ -17,7 +17,7 @@ class Resume extends Component {
       });
 
       var work = this.props.data.work.map(function(job){
-        return <div key={job.company} className="row item">
+        return <div key={job.id} className="row item">
            <div className="twelve columns">
               <h3>{job.company}</h3>
               <p className="info">{job.title}<span>&bull;</span> <em className="date">{job.years}</em></p>
@@ -61,7 +61,7 @@ class Resume extends Component {
             <h1><span>Skills</span></h1>
          </div>
          <div className="nine columns main-col">
-            <p>The main skill sets below outline the variety of skills performed within my current role as Senior Photographer at Block Media in Paris, France..
+            <p>Skills I have aquired from my Computer Science education or my profesional experience in the software development field, rated by my peers. 
             </p>
 				<div className="bars">
 				   <ul className="skills">

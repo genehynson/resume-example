@@ -12,7 +12,7 @@ class Footer extends Component {
 
 
             <ul className="copyright">
-               <li>&copy; Copyright 2017 Henri Leroy </li>
+               <li>&copy; Copyright 2018 Gene Hynson </li>
                <li>Design by <a target="_blank" href="https://www.linkedin.com/in/letuscode/">Jason Williams</a></li>
             </ul>
 
