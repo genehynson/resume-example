@@ -2,22 +2,22 @@
   "name": "resume-example",
   "version": "1.0.0",
   "private": true,
-  "description": "Single page resume using React",
+  "description": "Microservice resume example using ReactJS and NodeJS",
   "author": {
-    "name": "Jason Williams",
-    "email": "jwill9999@icloud.com"
+    "name": "Gene Hynson",
+    "email": "gene.hynson@gmail.com"
   },
   "keywords": [
     "React",
     "single-page",
-    "scroll",
-    "contactForm"
+    "microservices",
+    "Node"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:jwill9999/resume-example.git"
+    "url": "git@github.com:genehynson/resume-example.git"
   },
-  "homepage": "https://jwill9999.github.io/resume-example",
+  "homepage": "https://genehynson.github.io/resume-example",
   "license": "ISC",
   "devDependencies": {
     "gh-pages": "^0.12.0",
