@@ -351,6 +351,7 @@
    header .banner-text h3 {
       font: 14px/1.9em 'librebaskerville-regular', sans-serif;
       width: 90%;
+      padding-top: 400px !important;
    }
   
    /* header social links */
