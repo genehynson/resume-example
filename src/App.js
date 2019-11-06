@@ -4,7 +4,7 @@ import Header from './Components/Header';
 import About from './Components/About';
 import Resume from './Components/Resume';
 import Footer from './Components/Footer';
-import { main, resume, testimonials } from '../public/resumeData';
+import { main, resume, testimonials } from './resumeData';
 import _ from 'lodash';
 import axios from 'axios';
 import { PROFILE_URL, EXPERIENCE_URL, EDUCATION_URL, SKILLS_URL } from './Util/Constants';

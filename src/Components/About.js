@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-require ('../../public/resumeData.json');
 import _ from 'lodash';
+require ('../../src/resumeData.json');
 
 class About extends Component {
   render() {
