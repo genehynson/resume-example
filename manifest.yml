@@ -1,7 +1,7 @@
 ---
 applications:
 - name: Resume-Example
-  memory: 256MB
+  memory: 24MB
   instances: 1
   path: build/
   buildpack: staticfile_buildpack
